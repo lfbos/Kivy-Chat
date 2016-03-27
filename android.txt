@@ -1,0 +1,3 @@
+title=Chat app
+author=Luis Boscan
+orientation=portrait
