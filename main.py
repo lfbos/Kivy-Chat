@@ -48,11 +48,14 @@ class ChatApp(App):
 
     def send_msg(self):
         msg = self.root.ids.message.text
-        self.conn.write('{0}:{1}'.format(self.nick, msg))
-        self.root.ids.chat_logs.text += (
+        if msg != '':
+            self.conn.write('{0}:{1}'.format(self.nick, msg))
+            self.root.ids.chat_logs.text += (
             '\t[b][color=2980b9]{}:[/color][/b] {}\n'
                 .format(self.nick, esc_markup(msg)))
-        self.root.ids.message.text = ''
+            self.root.ids.message.text = ''
+            
+        
 
     def on_connect(self, conn):
         print('-- connected')
